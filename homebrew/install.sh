@@ -13,7 +13,7 @@ then
 fi
 
 # Install homebrew packages
-brew install grc coreutils spark wget
+brew install grc coreutils spark wget irssi
 
 echo "Getting total terminal dmg..."
 wget http://downloads.binaryage.com/TotalTerminal-1.4.11.dmg
