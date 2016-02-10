@@ -1,28 +1,47 @@
 servers = (
   {
-    address = "irc.tf";
-    chatnet = "t4nk";
+    address = "irc.xyxyx.org";
+    chatnet = "xyxyx";
     port = "6697";
     use_ssl = "yes";
     ssl_verify = "no";
-    autoconnect = "yes";
+    autoconnect = "no";
   },
   {
     address = "irc.esper.net";
     chatnet = "espernet";
     port = "6667";
-    autoconnect = "yes";
-  }
+    autoconnect = "no";
+  },
+  {
+    address = "irc.freenode.org";
+    chatnet = "freenode";
+    port = "6667";
+    autoconnect = "no";
+  },
+  {
+    address = "irc.rawles.net";
+    chatnet = "rawlesnet";
+    port = "6667";
+    autoconnect = "no";
+    password = "whagwarn";
+  },
+
 );
 
 chatnets = {
   t4nk = { type = "IRC"; max_whois = "30"; };
   espernet = { type = "IRC"; };
+  freenode = { type = "IRC"; };
+  xyxyx = { type = "IRC"; };
+  rawlesnet = { type = "IRC"; };
 };
 
 channels = (
-  { name = "#"; chatnet = "t4nk"; autojoin = "No"; },
-  { name = "#crtc"; chatnet = "espernet"; autojoin = "No"; }
+  { name = "#"; chatnet = "t4nk"; autojoin = "Yes"; },
+  { name = "#admo"; chatnet = "espernet"; autojoin = "No"; },
+  { name = "#crtc"; chatnet = "espernet"; autojoin = "No"; },
+  { name = "#"; chatnet = "rawlesnet"; autojoin = "Yes"; }
 );
 
 aliases = {
@@ -187,9 +206,17 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "red"; user_name = "red"; nick = "red"; };
+  core = { real_name = "red"; user_name = "red"; nick = "adamfc"; };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { autolog = "yes"; };
 };
 logs = { };
-ignores = ( { level = "JOINS PARTS QUITS"; channels = ( "#plone" ); } );
+ignores = (
+  { level = "JOINS PARTS QUITS"; channels = ( "#plone" ); },
+  {
+    level = "JOINS PARTS QUITS NICKS";
+    channels = ( "#ploneintranet" );
+  },
+  { mask = "kipz@nsa.gov"; level = "JOINS PARTS QUITS"; },
+  { mask = "kipz*"; level = "JOINS PARTS QUITS"; channels = ( "#" ); }
+);
