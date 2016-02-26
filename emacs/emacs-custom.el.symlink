@@ -11,8 +11,8 @@
 
 (ido-mode t)
 (global-flycheck-mode 1)
-(global-netsight-mode 1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'py-isort-before-save)
 (add-hook 'python-mode-hook '(lambda ()
           (local-set-key (kbd "RET") 'newline-and-indent)))
 (add-hook 'sgml-mode-hook '(lambda ()
