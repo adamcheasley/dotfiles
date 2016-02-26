@@ -16,7 +16,8 @@ servers = (
   {
     address = "irc.freenode.org";
     chatnet = "freenode";
-    port = "6667";
+    port = "6697";
+    use_ssl = "yes";
     autoconnect = "no";
   },
   {
@@ -218,5 +219,5 @@ ignores = (
     channels = ( "#ploneintranet" );
   },
   { mask = "kipz@nsa.gov"; level = "JOINS PARTS QUITS"; },
-  { mask = "kipz*"; level = "JOINS PARTS QUITS"; channels = ( "#" ); }
+  { mask = "*kip*"; level = "JOINS PARTS QUITS"; channels = ( "#" ); },
 );
