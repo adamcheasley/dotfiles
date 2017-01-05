@@ -8,6 +8,8 @@
 ;;; Code:
 
 (setq custom-theme-directory (locate-user-emacs-file "themes"))
+;; slime common lisp
+(setq inferior-lisp-program "sbcl")
 
 (ido-mode t)
 (global-flycheck-mode 1)
@@ -24,7 +26,7 @@
 
 (define-key netsight-keymap (kbd "<kp-9>") 'magit-status)
 (define-key netsight-keymap (kbd "<f15>") 'magit-blame-mode)
-(define-key netsight-keymap (kbd "<f19>") 'netsight-start-ide-mode)
+(define-key netsight-keymap (kbd "<f16>") 'cheej-ide-mode)
 (define-key netsight-keymap (kbd "C-x p") 'netsight-other-window-back)
 (define-key netsight-keymap (kbd "M-d") 'kill-word)
 (setq mac-option-key-is-meta nil)
@@ -32,10 +34,23 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 
+
+(defun cheej-ide-mode ()
+  "Set up 2 column layout fullscreen."
+  (interactive)
+  (split-window-horizontally)
+  (toggle-fullscreen))
+
 ;; open jaq with given task number
 (defun open-jaq (url)
   (interactive "sTask number: ")
   (call-process "open" nil 0 nil (concat "http://jaq.netsight.co.uk/jaq/queue/" url))
+)
+
+;; open prezola github
+(defun prezola-github ()
+  (interactive)
+  (call-process "open" nil 0 nil "https://github.com/prezola/prezola")
 )
 
 ;; search github
@@ -58,7 +73,33 @@
      nil 'fullscreen
      (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
+
+;; open buffer on prezola github
+(defun github-prezola ()
+  (setq fullBuffer (buffer-file-name (current-buffer)))
+  (setq splitPath (split-string fullBuffer "/" t))
+  )
+
+
 ;; twitter
 (setq twittering-use-master-password t)
+
+;;; tide setup
+;;; https://github.com/ananthakumaran/tide/blob/master/README.md
+(require 'tide)
+
+(defun setup-tide-mode ()
+  "Set up tide mode."
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1))
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+;;; end tide setup
+
+;;; intero (haskell) mode
+(add-hook 'haskell-mode-hook 'intero-mode)
 
 ;;; .emacs-custom.el ends here

@@ -2,9 +2,7 @@ servers = (
   {
     address = "irc.xyxyx.org";
     chatnet = "xyxyx";
-    port = "6697";
-    use_ssl = "yes";
-    ssl_verify = "no";
+    port = "6667";
     autoconnect = "no";
   },
   {
