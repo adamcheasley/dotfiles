@@ -3,11 +3,15 @@
 ;; The emacs customize interace will append to this file.
 
 ;;; Commentary:
+;; Here are some handy functions:
+;; (standard-display-ascii ?\t "^I")  ;; show tabs
+;; (setq-default indent-tabs-mode nil)   ;; turn off tabs
 ;;
 
 ;;; Code:
 
 (setq custom-theme-directory (locate-user-emacs-file "themes"))
+(setq diary-file "/Users/prezoladesigner/Sync/diary")
 ;; slime common lisp
 (setq inferior-lisp-program "sbcl")
 
@@ -22,8 +26,6 @@
          sgml-mode-map
          (kbd "RET") 'newline-and-indent)))
 
-(setq rcirc-default-nick "adamfc")
-
 (define-key netsight-keymap (kbd "<kp-9>") 'magit-status)
 (define-key netsight-keymap (kbd "<f15>") 'magit-blame-mode)
 (define-key netsight-keymap (kbd "<f16>") 'cheej-ide-mode)
@@ -33,6 +35,7 @@
 (setq mac-command-key-is-meta t)
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
+(setq diary-european-date-forms t)
 
 
 (defun cheej-ide-mode ()
@@ -41,11 +44,6 @@
   (split-window-horizontally)
   (toggle-fullscreen))
 
-;; open jaq with given task number
-(defun open-jaq (url)
-  (interactive "sTask number: ")
-  (call-process "open" nil 0 nil (concat "http://jaq.netsight.co.uk/jaq/queue/" url))
-)
 
 ;; open prezola github
 (defun prezola-github ()
@@ -72,13 +70,6 @@
   (set-frame-parameter
      nil 'fullscreen
      (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
-
-
-;; open buffer on prezola github
-(defun github-prezola ()
-  (setq fullBuffer (buffer-file-name (current-buffer)))
-  (setq splitPath (split-string fullBuffer "/" t))
-  )
 
 
 ;; twitter
