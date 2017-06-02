@@ -15,7 +15,4 @@ fi
 # Install homebrew packages
 brew install grc coreutils spark wget irssi
 
-echo "Getting seqelpro..."
-wget https://sequel-pro.googlecode.com/files/sequel-pro-1.0.2.dmg
-
 exit 0
