@@ -3,6 +3,11 @@
 ;; The emacs customize interace will append to this file.
 
 ;;; Commentary:
+;; To use this file you'll need to do the following:
+;; make sure pip is installed
+;; get flake8 on PATH
+;; install exec-path-from-shell, flycheck, flymake, flycheck-color-mode-line
+
 ;; Here are some handy functions:
 ;; (standard-display-ascii ?\t "^I")  ;; show tabs
 ;; (setq-default indent-tabs-mode nil)   ;; turn off tabs
