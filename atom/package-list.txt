@@ -1,0 +1,12 @@
+atom-git-revert@0.2.6
+busy-signal@1.4.3
+git-plus@8.1.0
+intentions@1.1.5
+linter@2.2.0
+linter-pycodestyle@2.1.3
+linter-ui-default@1.7.1
+python-indent@1.1.6
+python-isort@0.0.7
+react@0.18.0
+revert-buffer@0.6.0
+
